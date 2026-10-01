@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f7fb;
+    color: #222;
+}
+.nav {
+    background: #123b63;
+    padding: 16px 8%;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: bold;
+}
+.container {
+    width: 84%;
+    margin: 35px auto;
+}
+h1 { color: #123b63; }
+.subtitle { color: #666; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th { background: #e8eef5; }
+.card, .info-box, .success, .note {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.success { border-left: 5px solid #28a745; }
+.btn {
+    display: inline-block;
+    background: #123b63;
+    color: white;
+    padding: 8px 13px;
+    text-decoration: none;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px;
+}
+.btn.secondary { background: #666; }
+.total { font-size: 20px; }
+.form-card { max-width: 500px; }
+label { display: block; margin-top: 12px; font-weight: bold; }
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+.form-card .btn { margin-top: 18px; }
+.error { color: #c00; display: block; margin-top: 4px; }
+.note { color: #555; }

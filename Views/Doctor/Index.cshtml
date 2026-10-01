@@ -1,0 +1,44 @@
+@model IEnumerable<Doctor>
+
+<h1>Hospital Appointment Management</h1>
+<p class="subtitle">Doctor information and patient appointment requests</p>
+
+<div class="info-box">
+    <strong>Cookie:</strong>
+    @if (Context.Request.Cookies.TryGetValue("PatientName", out var patientName))
+    {
+        <span>Saved patient: @patientName</span>
+    }
+    else
+    {
+        <span>No patient name saved yet.</span>
+    }
+</div>
+
+<div class="info-box"><strong>Session selected specialization:</strong> @(Context.Session.GetString("SelectedSpecialization") ?? "Not selected yet")</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th><th>Doctor</th><th>Specialization</th><th>Experience</th><th>Fee</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var doctor in Model)
+    {
+        <tr>
+            <td>@doctor.DoctorId</td>
+            <td>@doctor.DoctorName</td>
+            <td>@doctor.Specialization</td>
+            <td>@doctor.Experience years</td>
+            <td>₹@doctor.ConsultationFee</td>
+            <td>
+                <a class="btn" asp-action="Details" asp-route-id="@doctor.DoctorId">Details</a>
+                <a class="btn secondary" asp-controller="Appointment" asp-action="Create" asp-route-doctorId="@doctor.DoctorId">Book</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p class="note">Doctor list is stored in IMemoryCache for 3 minutes. This page also demonstrates Response Caching.</p>

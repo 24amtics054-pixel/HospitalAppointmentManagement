@@ -1,0 +1,34 @@
+@model Appointment
+
+<h1>Appointment Request</h1>
+
+<form asp-action="Create" method="post" class="card form-card">
+    @Html.AntiForgeryToken()
+
+    <!-- Hidden field requirement: DoctorId is submitted with the form. -->
+    <input asp-for="DoctorId" type="hidden" />
+
+    <label asp-for="PatientName">Patient Name</label>
+    <input asp-for="PatientName" placeholder="Enter patient name" />
+    <span asp-validation-for="PatientName" class="error"></span>
+
+    <label asp-for="Specialization">Specialization</label>
+    <select asp-for="Specialization">
+        <option value="">-- Select Specialization --</option>
+        @foreach (var item in (string[])ViewBag.Specializations)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    <span asp-validation-for="Specialization" class="error"></span>
+
+    <label asp-for="AppointmentDate">Appointment Date</label>
+    <input asp-for="AppointmentDate" type="date" />
+    <span asp-validation-for="AppointmentDate" class="error"></span>
+
+    <button type="submit" class="btn">Submit Appointment</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

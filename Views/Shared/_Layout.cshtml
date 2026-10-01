@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Appointment Management</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a asp-controller="Doctor" asp-action="Index">Doctors</a>
+            <a asp-controller="Post" asp-action="Index">Async Posts</a>
+        </nav>
+    </header>
+    <main class="container">
+    @if (TempData["Message"] != null)
+    {
+        <div class="success">@TempData["Message"]</div>
+    }
+
+    @RenderBody()
+</main>
+
+@RenderSection("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+@model IEnumerable<PostItem>
+
+<h1>Posts Retrieved Asynchronously</h1>
+<p class="subtitle">Data loaded from JSONPlaceholder using an asynchronous HTTP request.</p>
+
+<table>
+    <thead><tr><th>Post ID</th><th>Title</th></tr></thead>
+    <tbody>
+    @foreach (var post in Model)
+    {
+        <tr><td>@post.Id</td><td>@post.Title</td></tr>
+    }
+    </tbody>
+</table>
